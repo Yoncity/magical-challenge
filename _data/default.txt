@@ -1,0 +1,12 @@
+First Name: John
+Last Name: Doe
+Date of birth: 1990-01-01
+Medical ID: 91927885
+Medical Information:
+  - Gender: Male
+  - Blood Type: A+
+  - Allergies: Peanuts
+  - Current Medications: Panadol
+Emergency Contact:
+  - Name: Sam Smith
+  - Phone: +1234567890
