@@ -1,0 +1,9 @@
+Fist Nam: Charles
+Last ame: Mathew
+Dateof birth: 1990-01-01
+Medical ID: 91927885
+Medical Information:
+  - Gender: Male
+  - Blood Type: A+
+Emergency Contact: N/A
+Frequent Visiter: NO

@@ -25,6 +25,11 @@ export async function main(inputData: string) {
         "value": "..." (for fill/select)
       }
 
+      **If there is multiple data inputs, meaning multiple items or entries then reload the page, and insert the data again like**
+      {
+        "action": "reload",
+      }
+
       Supported actions: fill, select, click, scroll, wait
 
       SOP:
@@ -52,6 +57,13 @@ export async function main(inputData: string) {
   const page = await createSession(targetUrl);
 
   for (const action of actions) {
+    const locator = page.getByRole(action.role, { name: action.label });
+
+    // Short timeout for presence check
+    const exists = await locator.count();
+
+    if (!exists) continue;
+
     switch (action.action) {
       case "fill":
         await page
@@ -70,6 +82,10 @@ export async function main(inputData: string) {
         await page
           .getByRole(action.role, { name: action.label })
           .scrollIntoViewIfNeeded();
+        break;
+      case "reload":
+        await page.waitForTimeout(2000);
+        await page.reload();
         break;
     }
   }
