@@ -3,12 +3,17 @@ import "dotenv-defaults/config";
 import { CronJob } from "cron";
 import fs from "fs";
 import { main } from "../main";
+import { getArg } from "../utils";
 
-const inputData = fs.readFileSync("./_data/default.txt", "utf8");
+const inputDataFileName = getArg("fileName") || getArg("filename") || "default";
+
+const inputData = fs.readFileSync(`./_data/${inputDataFileName}.txt`, "utf8");
 
 const runWorkflow = async () => {
   const timestamp = new Date().toISOString();
-  console.log(`[${timestamp}] Running scheduled workflow...`);
+  console.log(
+    `[${timestamp}] Running scheduled workflow for ${inputDataFileName}.txt ...`
+  );
 
   await main(inputData);
 

@@ -4,7 +4,7 @@ import { main } from "../main";
 const routes = new Hono();
 
 routes.get("/hello", (c) => {
-  return c.json({ message: "Hello from Automation API!" });
+  return c.text("👋 Hello from Automation API!");
 });
 
 routes.post("/run-workflow", async (c) => {
