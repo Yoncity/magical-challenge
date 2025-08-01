@@ -1,11 +1,8 @@
 import { generateText } from "ai";
-import fs from "fs";
 import { model } from "./_internal/setup";
 import { createSession } from "./session";
 
-const inputData = fs.readFileSync("./_data/default.txt", "utf8");
-
-export async function main() {
+export async function main(inputData: string) {
   const response = await generateText({
     model,
     prompt: `
